@@ -70,7 +70,6 @@ const FeatureMedia = ({ feature }) => {
     );
   }
 
-  // sem mídia (ainda) — ícone sobre o gradiente da atividade
   return (
     <span className="feature-media-fallback" aria-hidden="true">
       <i className={`${icon} ${dark ? 'is-dark' : ''}`}></i>
@@ -79,6 +78,18 @@ const FeatureMedia = ({ feature }) => {
 };
 
 const Features = () => {
+  const [active, setActive] = useState(0);
+  const n = features.length;
+
+  const offsetOf = (i) => {
+    let d = i - active;
+    if (d > n / 2) d -= n;
+    if (d < -n / 2) d += n;
+    return d;
+  };
+
+  const go = (dir) => setActive((prev) => (prev + dir + n) % n);
+
   return (
     <section className="features-section" id="courses">
       <div className="container">
@@ -91,28 +102,88 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="features-grid">
-          {features.map((feature) => (
-            <div className="feature-card" key={feature.id}>
-              <div className="feature-media" style={{ backgroundImage: feature.accent }}>
-                <FeatureMedia feature={feature} />
-              </div>
-
-              <div className="feature-body">
-                <div
-                  className={`feature-icon-badge ${feature.dark ? 'is-dark' : ''}`}
-                  style={{ backgroundImage: feature.accent }}
+        <div className="activities-carousel">
+          <div className="activities-stage">
+            {features.map((feature, i) => {
+              const offset = offsetOf(i);
+              const abs = Math.abs(offset);
+              // Com 4 cards um fica "sobrando"; escondemos ele atrás do centro
+              // para o leque ficar simétrico (centro + 1 de cada lado).
+              const hidden = abs >= 2;
+              const style = hidden
+                ? {
+                    '--o': 0,
+                    '--oa': 0,
+                    transform: 'translateX(-50%) translateY(-26px) scale(0.82)',
+                    zIndex: 60,
+                    opacity: 0,
+                    pointerEvents: 'none'
+                  }
+                : {
+                    '--o': offset,
+                    '--oa': abs,
+                    zIndex: 100 - abs * 10,
+                    opacity: 1,
+                    pointerEvents: 'auto'
+                  };
+              return (
+                <button
+                  key={feature.id}
+                  type="button"
+                  className={`activity-card ${offset === 0 ? 'is-active' : ''}`}
+                  style={style}
+                  onClick={() => setActive(i)}
+                  aria-label={`Ver ${feature.title}`}
                 >
-                  <i className={feature.icon}></i>
-                </div>
-                <h3>{feature.title}</h3>
-                <p>{feature.desc}</p>
-                <a href="#contact" className="feature-link">
-                  Saiba mais <i className="fa-solid fa-arrow-right"></i>
-                </a>
-              </div>
+                  <div className="activity-media" style={{ backgroundImage: feature.accent }}>
+                    <FeatureMedia feature={feature} />
+                  </div>
+                  <div className="activity-overlay">
+                    <span
+                      className={`activity-icon ${feature.dark ? 'is-dark' : ''}`}
+                      style={{ backgroundImage: feature.accent }}
+                    >
+                      <i className={feature.icon}></i>
+                    </span>
+                    <h3>{feature.title}</h3>
+                    <p className="activity-desc">{feature.desc}</p>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="activities-controls">
+            <button
+              type="button"
+              className="activity-arrow"
+              onClick={() => go(-1)}
+              aria-label="Atividade anterior"
+            >
+              <i className="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <div className="activity-dots">
+              {features.map((feature, i) => (
+                <button
+                  key={feature.id}
+                  type="button"
+                  className={`activity-dot ${i === active ? 'is-active' : ''}`}
+                  onClick={() => setActive(i)}
+                  aria-label={`Ir para ${feature.title}`}
+                ></button>
+              ))}
             </div>
-          ))}
+
+            <button
+              type="button"
+              className="activity-arrow"
+              onClick={() => go(1)}
+              aria-label="Próxima atividade"
+            >
+              <i className="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
         </div>
       </div>
     </section>
