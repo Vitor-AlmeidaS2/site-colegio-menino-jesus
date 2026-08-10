@@ -18,7 +18,7 @@ const features = [
     icon: 'fa-solid fa-robot',
     accent: 'linear-gradient(135deg, #FFB020, #F97316)',
     dark: false,
-    media: { type: 'image', src: '/atividades/robotica.jpg' }
+    media: { type: 'video', src: '/atividades/robotica.mp4' }
   },
   {
     id: 3,
