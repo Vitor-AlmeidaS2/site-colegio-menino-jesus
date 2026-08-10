@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { asset } from '../base';
 
 const units = [
   {
@@ -45,7 +46,7 @@ const UnitCard = ({ unit }) => {
       <div className="unit-gallery">
         <div className="unit-image">
           <img
-            src={unit.photos[active].src}
+            src={asset(unit.photos[active].src)}
             alt={`${unit.name} — ${unit.photos[active].caption}`}
             loading="lazy"
             onError={(e) => { e.currentTarget.style.display = 'none'; }}
@@ -65,7 +66,7 @@ const UnitCard = ({ unit }) => {
               onClick={() => setActive(i)}
               aria-label={`Ver foto ${i + 1} — ${photo.caption}`}
             >
-              <img src={photo.src} alt="" loading="lazy" />
+              <img src={asset(photo.src)} alt="" loading="lazy" />
             </button>
           ))}
         </div>

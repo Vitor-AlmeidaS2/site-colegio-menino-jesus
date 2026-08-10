@@ -1,4 +1,5 @@
 import React from 'react';
+import { asset } from '../base';
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
         <div className="footer-grid">
           <div className="footer-col">
             <a href="/" className="footer-logo">
-              <img src="/logo-cmj.png" alt="Colégio Menino Jesus" className="brand-logo-footer" />
+              <img src={asset('/logo-cmj.png')} alt="Colégio Menino Jesus" className="brand-logo-footer" />
               <span className="logo-text">Colégio Menino <span>Jesus</span></span>
             </a>
             <p className="footer-desc">

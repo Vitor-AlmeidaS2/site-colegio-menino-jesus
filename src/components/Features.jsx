@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { asset } from '../base';
 
 const features = [
   {
@@ -47,7 +48,7 @@ const FeatureMedia = ({ feature }) => {
     return (
       <video
         className="feature-media-el"
-        src={media.src}
+        src={asset(media.src)}
         autoPlay
         muted
         loop
@@ -61,7 +62,7 @@ const FeatureMedia = ({ feature }) => {
     return (
       <img
         className="feature-media-el"
-        src={media.src}
+        src={asset(media.src)}
         alt={`Atividade de ${feature.title}`}
         loading="lazy"
         onError={() => setFailed(true)}

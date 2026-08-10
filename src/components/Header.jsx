@@ -1,4 +1,5 @@
 import React from 'react';
+import { asset } from '../base';
 
 const Header = () => {
   return (
@@ -33,7 +34,7 @@ const Header = () => {
       <nav className="navbar">
         <div className="container navbar-content">
           <a href="/" className="logo">
-            <img src="/logo-cmj.png" alt="Colégio Menino Jesus" className="brand-logo" />
+            <img src={asset('/logo-cmj.png')} alt="Colégio Menino Jesus" className="brand-logo" />
             <span className="logo-text">Colégio Menino <span>Jesus</span></span>
           </a>
           
