@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Montserrat:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+  --primary-color: #482277;
+  /* Roxo CMJ */
+  --primary-light: #6B3FA0;
+  --primary-dark: #321655;
+
+  --secondary-color: #FDC600;
+  /* Amarelo CMJ */
+  --secondary-light: #FFD84D;
+  --secondary-dark: #dca300;
+
+  --bg-color: #ffffff;
+  --bg-light-gray: #f4f6f9;
+
+  /* Tons de fundo (amarelo/laranja + azul) para alternância das seções */
+  --tint-cream: #FFF7E6;
+  /* Amarelo suave */
+  --tint-peach: #FFEFE0;
+  /* Laranja suave */
+  --tint-blue: #E9F3FB;
+  /* Azul suave */
+
+  --text-dark: #242424;
+  --text-light: #6b7280;
+  --text-white: #ffffff;
+
+  --font-heading: 'Baloo 2', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-heading);
+  transition: all 0.3s ease;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--secondary-color);
+  color: var(--text-dark);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-white {
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+}
+
+.btn-white:hover {
+  background-color: var(--bg-light-gray);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.section-subtitle {
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
