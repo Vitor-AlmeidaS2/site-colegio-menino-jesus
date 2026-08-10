@@ -29,11 +29,11 @@ const units = [
     whatsapp: '5598991946783',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=Col%C3%A9gio+Menino+Jesus+Ch%C3%A1cara+Brasil+S%C3%A3o+Lu%C3%ADs+MA',
     photos: [
+      { src: '/unidades/chacara-brasil-fachada.jpg', caption: 'Fachada' },
       { src: '/unidades/chacara-brasil-1.jpg', caption: 'Nossa unidade' },
       { src: '/unidades/chacara-brasil-2.jpg', caption: 'Nossa unidade' },
       { src: '/unidades/chacara-brasil-3.jpg', caption: 'Sala de aula' },
-      { src: '/unidades/chacara-brasil-4.jpg', caption: 'Robótica' },
-      { src: '/unidades/chacara-brasil-5.jpg', caption: 'Robótica' }
+      { src: '/unidades/chacara-brasil-4.jpg', caption: 'Robótica' }
     ]
   }
 ];
