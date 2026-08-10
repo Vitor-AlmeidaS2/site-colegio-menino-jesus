@@ -1,4 +1,5 @@
 import React from 'react';
+import { asset } from '../base';
 
 const About = () => {
   return (
@@ -7,14 +8,14 @@ const About = () => {
         <div className="about-grid">
           <div className="about-images">
             <div className="about-img about-img-1">
-              <img src="/unidades/jardim-america-1.jpg" alt="Colégio Menino Jesus - Unidade Jardim América" loading="lazy" />
+              <img src={asset('/unidades/jardim-america-1.jpg')} alt="Colégio Menino Jesus - Unidade Jardim América" loading="lazy" />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <div className="about-img about-img-2">
-                <img src="/unidades/chacara-brasil-2.jpg" alt="Aluno em atividade no Colégio Menino Jesus" loading="lazy" />
+                <img src={asset('/unidades/chacara-brasil-2.jpg')} alt="Aluno em atividade no Colégio Menino Jesus" loading="lazy" />
               </div>
               <div className="about-img about-img-3">
-                <img src="/unidades/jardim-america-2.jpg" alt="Alunos em sala de aula no Colégio Menino Jesus" loading="lazy" />
+                <img src={asset('/unidades/jardim-america-2.jpg')} alt="Alunos em sala de aula no Colégio Menino Jesus" loading="lazy" />
               </div>
             </div>
             <div className="about-badge">

@@ -102,7 +102,6 @@
   display: flex;
   align-items: center;
   background-color: var(--primary-color);
-  background-image: linear-gradient(to right, rgba(50, 22, 85, 0.72) 0%, rgba(72, 34, 119, 0.52) 45%, rgba(72, 34, 119, 0.2) 100%), url('/unidades/jardim-america-passeio.jpg');
   background-size: cover;
   background-position: center 30%;
   color: var(--text-white);

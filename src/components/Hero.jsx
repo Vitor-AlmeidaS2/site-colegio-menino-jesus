@@ -1,8 +1,13 @@
 import React from 'react';
+import { asset } from '../base';
+
+const heroStyle = {
+  backgroundImage: `linear-gradient(to right, rgba(50, 22, 85, 0.72) 0%, rgba(72, 34, 119, 0.52) 45%, rgba(72, 34, 119, 0.2) 100%), url(${asset('/unidades/jardim-america-passeio.jpg')})`
+};
 
 const Hero = () => {
   return (
-    <section id="home" className="hero">
+    <section id="home" className="hero" style={heroStyle}>
       <div className="container">
         <div className="hero-content animate-fade-in">
           <span className="hero-subtitle">Há 26 anos educando com amor e responsabilidade.</span>
