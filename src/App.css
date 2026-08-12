@@ -490,36 +490,71 @@
 
 .about-action {
   display: flex;
-  align-items: center;
-  gap: 30px;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.call-now {
+.about-contact-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.about-contact-label i {
+  color: var(--primary-color);
+  margin-right: 6px;
+}
+
+.about-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.about-wpp {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  background-color: rgba(37, 211, 102, 0.08);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
-.call-icon {
-  width: 50px;
-  height: 50px;
-  background-color: var(--primary-color);
-  color: var(--text-white);
+.about-wpp:hover {
+  transform: translateY(-2px);
+  background-color: rgba(37, 211, 102, 0.14);
+  box-shadow: 0 10px 22px rgba(37, 211, 102, 0.18);
+}
+
+.about-wpp > i {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  background-color: #25d366;
+  color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
 }
 
-.call-text span {
-  display: block;
-  font-size: 0.9rem;
+.about-wpp-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.about-wpp-text small {
+  font-size: 0.8rem;
   color: var(--text-light);
 }
 
-.call-text strong {
-  font-size: 1.2rem;
+.about-wpp-text strong {
+  font-size: 1.1rem;
   color: var(--text-dark);
   font-family: var(--font-heading);
 }

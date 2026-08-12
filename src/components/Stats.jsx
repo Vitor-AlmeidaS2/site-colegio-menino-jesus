@@ -1,10 +1,11 @@
 import React from 'react';
+import { anosDeTradicao, ANO_FUNDACAO } from '../base';
 
 const stats = [
   { id: 1, icon: 'fa-solid fa-school', number: '2', label: 'Unidades' },
-  { id: 2, icon: 'fa-solid fa-graduation-cap', number: '2500+', label: 'Nossos Alunos' },
-  { id: 3, icon: 'fa-solid fa-book-open', number: '150+', label: 'Professores Qualificados' },
-  { id: 4, icon: 'fa-solid fa-trophy', number: '45+', label: 'Prêmios Conquistados' }
+  { id: 2, icon: 'fa-solid fa-heart', number: `${anosDeTradicao}`, label: 'Anos de história' },
+  { id: 3, icon: 'fa-solid fa-star', number: '4', label: 'Atividades extracurriculares' },
+  { id: 4, icon: 'fa-solid fa-calendar-check', number: `${ANO_FUNDACAO}`, label: 'Fundado em' }
 ];
 
 const Stats = () => {

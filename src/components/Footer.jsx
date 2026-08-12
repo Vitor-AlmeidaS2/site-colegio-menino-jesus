@@ -1,5 +1,5 @@
 import React from 'react';
-import { asset } from '../base';
+import { asset, anosDeTradicao } from '../base';
 
 const Footer = () => {
   return (
@@ -12,7 +12,7 @@ const Footer = () => {
               <span className="logo-text">Colégio Menino <span>Jesus</span></span>
             </a>
             <p className="footer-desc">
-              Há 26 anos educando com amor e responsabilidade. Formando cidadãos críticos e conscientes em São Luís do Maranhão.
+              Há {anosDeTradicao} anos educando com amor e responsabilidade. Formando cidadãos críticos e conscientes em São Luís do Maranhão.
             </p>
             <div className="footer-social">
               <a href="#"><i className="fa-brands fa-facebook-f"></i></a>

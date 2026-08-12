@@ -32,4 +32,4 @@ Este é o código-fonte do novo site do **Colégio Menino Jesus** (São Luís - 
 Para editar os textos, basta abrir os componentes específicos dentro de `src/components/` e modificar o HTML/React. As imagens são referenciadas por URLs e podem ser substituídas pelas fotos originais do colégio.
 
 ---
-Desenvolvido com dedicação para a educação. Há 26 anos educando com amor e responsabilidade.
+Desenvolvido com dedicação para a educação. Educando com amor e responsabilidade desde 1998.
