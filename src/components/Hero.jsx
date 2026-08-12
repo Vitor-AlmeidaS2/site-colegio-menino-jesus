@@ -2,7 +2,7 @@ import React from 'react';
 import { asset, anosDeTradicao } from '../base';
 
 const heroStyle = {
-  backgroundImage: `url(${asset('/hero.jpg')})`
+  backgroundImage: `linear-gradient(90deg, rgba(16, 10, 6, 0.68) 0%, rgba(16, 10, 6, 0.42) 34%, rgba(16, 10, 6, 0) 62%), url(${asset('/hero.jpg')})`
 };
 
 const Hero = () => {
