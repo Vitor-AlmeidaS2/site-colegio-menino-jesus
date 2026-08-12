@@ -20,21 +20,35 @@ const photos = [
   { src: '/unidades/chacara-brasil-5.jpg', caption: 'Chácara Brasil' }
 ];
 
+const VISIBLE = 5; // quantos cards ficam empilhados atrás do da frente
+
 const Gallery = () => {
-  const [lightbox, setLightbox] = useState(null); // índice da foto aberta ou null
+  const n = photos.length;
+  const [active, setActive] = useState(0);
+  const [lightbox, setLightbox] = useState(null);
+  const [paused, setPaused] = useState(false);
 
+  const go = useCallback((dir) => setActive((a) => (a + dir + n) % n), [n]);
+
+  // autoplay do leque (pausa no hover e quando o lightbox está aberto)
+  useEffect(() => {
+    if (paused || lightbox !== null) return;
+    const t = setInterval(() => setActive((a) => (a + 1) % n), 4200);
+    return () => clearInterval(t);
+  }, [paused, lightbox, n]);
+
+  // lightbox: teclado + trava de scroll
   const close = useCallback(() => setLightbox(null), []);
-  const go = useCallback(
-    (dir) => setLightbox((i) => (i === null ? i : (i + dir + photos.length) % photos.length)),
-    []
+  const goLb = useCallback(
+    (dir) => setLightbox((i) => (i === null ? i : (i + dir + n) % n)),
+    [n]
   );
-
   useEffect(() => {
     if (lightbox === null) return;
     const onKey = (e) => {
       if (e.key === 'Escape') close();
-      if (e.key === 'ArrowRight') go(1);
-      if (e.key === 'ArrowLeft') go(-1);
+      if (e.key === 'ArrowRight') goLb(1);
+      if (e.key === 'ArrowLeft') goLb(-1);
     };
     window.addEventListener('keydown', onKey);
     document.body.style.overflow = 'hidden';
@@ -42,35 +56,72 @@ const Gallery = () => {
       window.removeEventListener('keydown', onKey);
       document.body.style.overflow = '';
     };
-  }, [lightbox, close, go]);
+  }, [lightbox, close, goLb]);
 
   return (
     <section id="gallery" className="gallery-section">
-      <div className="container">
-        <div className="gallery-header">
-          <span className="section-subtitle">Nosso Dia a Dia</span>
-          <h2 className="section-title">Galeria de Fotos</h2>
-          <p className="gallery-intro">
-            Momentos que revelam a rotina, os eventos e o carinho do Colégio Menino Jesus.
-            Clique em qualquer foto para ampliar.
-          </p>
-        </div>
+      <div className="container gallery-header">
+        <span className="section-subtitle">Nosso Dia a Dia</span>
+        <h2 className="section-title">Galeria de Fotos</h2>
+        <p className="gallery-intro">
+          Momentos que revelam a rotina, os eventos e o carinho do Colégio Menino Jesus.
+          Passe pelas fotos e clique para ampliar.
+        </p>
       </div>
 
-      <div className="gallery-masonry">
+      <div
+        className="deck"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <button className="deck-arrow deck-prev" onClick={() => go(-1)} aria-label="Foto anterior">
+          <i className="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div className="deck-stage">
+          {photos.map((photo, i) => {
+            const d = (i - active + n) % n; // 0 = card da frente
+            const shown = d <= VISIBLE;
+            const style = {
+              transform:
+                `translate(-50%, -50%) ` +
+                `translate3d(${d * 46}px, ${d * -30}px, ${d * -70}px) ` +
+                `rotate(${d * 1.5}deg) scale(${Math.max(1 - d * 0.05, 0.6)})`,
+              opacity: shown ? Math.max(1 - d * 0.15, 0) : 0,
+              zIndex: n - d,
+              pointerEvents: d === 0 ? 'auto' : 'none'
+            };
+            return (
+              <button
+                key={photo.src}
+                type="button"
+                className={`deck-card ${d === 0 ? 'is-front' : ''}`}
+                style={style}
+                onClick={() => setLightbox(i)}
+                aria-label={`Ampliar foto: ${photo.caption}`}
+                aria-hidden={!shown}
+              >
+                <img src={asset(photo.src)} alt={photo.caption} draggable="false" />
+                {d === 0 && <span className="deck-card-cap">{photo.caption}</span>}
+              </button>
+            );
+          })}
+        </div>
+
+        <button className="deck-arrow deck-next" onClick={() => go(1)} aria-label="Próxima foto">
+          <i className="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div className="deck-dots">
         {photos.map((photo, i) => (
           <button
-            type="button"
             key={photo.src}
-            className="gallery-item"
-            onClick={() => setLightbox(i)}
-            aria-label={`Ampliar foto: ${photo.caption}`}
-          >
-            <img src={asset(photo.src)} alt={photo.caption} loading="lazy" />
-            <span className="gallery-item-overlay">
-              <i className="fa-solid fa-expand"></i>
-            </span>
-          </button>
+            type="button"
+            className={`deck-dot ${i === active ? 'is-active' : ''}`}
+            onClick={() => setActive(i)}
+            aria-label={`Ir para a foto ${i + 1}`}
+          ></button>
         ))}
       </div>
 
@@ -81,7 +132,7 @@ const Gallery = () => {
           </button>
           <button
             className="lightbox-arrow lightbox-prev"
-            onClick={(e) => { e.stopPropagation(); go(-1); }}
+            onClick={(e) => { e.stopPropagation(); goLb(-1); }}
             aria-label="Foto anterior"
           >
             <i className="fa-solid fa-chevron-left"></i>
@@ -92,7 +143,7 @@ const Gallery = () => {
           </figure>
           <button
             className="lightbox-arrow lightbox-next"
-            onClick={(e) => { e.stopPropagation(); go(1); }}
+            onClick={(e) => { e.stopPropagation(); goLb(1); }}
             aria-label="Próxima foto"
           >
             <i className="fa-solid fa-chevron-right"></i>
