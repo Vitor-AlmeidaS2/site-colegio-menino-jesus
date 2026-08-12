@@ -7,6 +7,8 @@ import Stats from './components/Stats'
 import Units from './components/Units'
 import Gallery from './components/Gallery'
 import Footer from './components/Footer'
+import FloatingContacts from './components/FloatingContacts'
+import CookieBanner from './components/CookieBanner'
 import './App.css'
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
         <Gallery />
       </main>
       <Footer />
+      <FloatingContacts />
+      <CookieBanner />
     </>
   )
 }
