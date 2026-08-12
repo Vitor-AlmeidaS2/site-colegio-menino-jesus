@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { asset } from '../base';
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
+
   return (
     <header>
       {/* Top Bar */}
@@ -32,18 +35,30 @@ const Header = () => {
       {/* Main Navbar */}
       <nav className="navbar">
         <div className="container navbar-content">
-          <a href="/" className="logo">
+          <a href="/" className="logo" onClick={close}>
             <img src={asset('/logo-cmj.png')} alt="Colégio Menino Jesus" className="brand-logo" />
             <span className="logo-text">Colégio Menino <span>Jesus</span></span>
           </a>
-          
-          <div className="nav-links">
-            <a href="#home">Início</a>
-            <a href="#about">História</a>
-            <a href="#courses">Atividades</a>
-            <a href="#units">Unidades</a>
-            <a href="#gallery">Galeria</a>
-            <a href="#contact" className="btn btn-primary">Fale Conosco</a>
+
+          <button
+            type="button"
+            className={`nav-toggle ${open ? 'is-open' : ''}`}
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={open}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div className={`nav-links ${open ? 'is-open' : ''}`}>
+            <a href="#home" onClick={close}>Início</a>
+            <a href="#about" onClick={close}>História</a>
+            <a href="#courses" onClick={close}>Atividades</a>
+            <a href="#units" onClick={close}>Unidades</a>
+            <a href="#gallery" onClick={close}>Galeria</a>
+            <a href="#contact" className="btn btn-primary" onClick={close}>Fale Conosco</a>
           </div>
         </div>
       </nav>
