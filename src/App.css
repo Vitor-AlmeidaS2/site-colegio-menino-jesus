@@ -194,22 +194,22 @@
 
 .activities-stage {
   position: relative;
-  height: 500px;
+  height: 570px;
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: 1240px;
 }
 
 .activity-card {
-  --tx: 178px;
-  --ty: 55px;
+  --tx: 240px;
+  --ty: 52px;
   --ang: 7deg;
   --sstep: 0.09;
 
   position: absolute;
   top: 10px;
   left: 50%;
-  width: 260px;
-  height: 460px;
+  width: 340px;
+  height: 520px;
   padding: 0;
   border: 5px solid #fff;
   border-radius: 26px;
@@ -282,21 +282,21 @@
   right: 0;
   bottom: 0;
   z-index: 3;
-  padding: 26px 18px 22px;
+  padding: 34px 22px 26px;
   text-align: center;
   color: var(--text-white);
-  background: linear-gradient(to top, rgba(15, 6, 30, 0.88), rgba(15, 6, 30, 0.35) 55%, transparent);
+  background: linear-gradient(to top, rgba(15, 6, 30, 0.9), rgba(15, 6, 30, 0.42) 58%, transparent);
 }
 
 .activity-icon {
-  width: 48px;
-  height: 48px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 10px;
-  font-size: 1.2rem;
+  margin: 0 auto 12px;
+  font-size: 1.5rem;
   color: var(--text-white);
   background-size: cover;
   border: 2px solid rgba(255, 255, 255, 0.65);
@@ -309,13 +309,13 @@
 
 .activity-overlay h3 {
   color: var(--text-white);
-  font-size: 1.3rem;
-  margin-bottom: 6px;
+  font-size: 1.65rem;
+  margin-bottom: 8px;
 }
 
 .activity-desc {
-  font-size: 0.82rem;
-  line-height: 1.4;
+  font-size: 1rem;
+  line-height: 1.5;
   opacity: 0;
   max-height: 0;
   overflow: hidden;
@@ -323,8 +323,8 @@
 }
 
 .activity-card.is-active .activity-desc {
-  opacity: 0.92;
-  max-height: 90px;
+  opacity: 0.95;
+  max-height: 160px;
 }
 
 .activities-controls {
@@ -1067,7 +1067,8 @@
 /* Responsive */
 @media (max-width: 992px) {
   .hero-title { font-size: 3rem; }
-  .activity-card { --tx: 130px; --ty: 46px; --sstep: 0.11; width: 224px; height: 400px; }
+  .activities-stage { height: 520px; }
+  .activity-card { --tx: 185px; --ty: 48px; --sstep: 0.11; width: 290px; height: 460px; }
   .about-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 50px; }
   .units-grid { grid-template-columns: 1fr; gap: 30px; max-width: 520px; margin: 0 auto; }
@@ -1085,10 +1086,47 @@
 }
 
 @media (max-width: 640px) {
-  .activities-stage { height: 430px; }
-  .activity-card { --tx: 74px; --ty: 34px; --ang: 6deg; --sstep: 0.14; width: 198px; height: 360px; }
+  .activities-stage { height: 470px; }
+  .activity-card { --tx: 96px; --ty: 34px; --ang: 6deg; --sstep: 0.14; width: 250px; height: 420px; }
 }
 
 @media (max-width: 576px) {
   .stats-grid { grid-template-columns: 1fr; }
+}
+
+/* Micro-interações dos botões de ícone e ações (press ao clicar) */
+.deck-arrow:active,
+.activity-arrow:active,
+.lightbox-arrow:active,
+.lightbox-close:active {
+  transform: scale(0.9);
+  transition-duration: 0.09s;
+}
+
+.lightbox-arrow:active {
+  transform: translateY(-50%) scale(0.9);
+}
+
+.unit-actions .btn:active {
+  transform: scale(0.97);
+  box-shadow: var(--shadow-sm);
+  transition-duration: 0.09s;
+}
+
+.footer-social a:active {
+  transform: scale(0.9);
+}
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  .btn::before { display: none; }
+  .btn,
+  .btn:hover,
+  .btn:active,
+  .deck-arrow,
+  .activity-arrow,
+  .unit-actions .btn {
+    transition: background-color 0.2s ease, color 0.2s ease;
+    transform: none;
+  }
 }
