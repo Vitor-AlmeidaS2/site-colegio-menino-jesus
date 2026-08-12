@@ -15,9 +15,8 @@ const Footer = () => {
               Há {anosDeTradicao} anos educando com amor e responsabilidade. Formando cidadãos críticos e conscientes em São Luís do Maranhão.
             </p>
             <div className="footer-social">
-              <a href="#"><i className="fa-brands fa-facebook-f"></i></a>
-              <a href="#"><i className="fa-brands fa-instagram"></i></a>
-              <a href="#"><i className="fa-brands fa-youtube"></i></a>
+              <a href="https://www.facebook.com/meninojesusSlz/?locale=pt_BR" target="_blank" rel="noopener noreferrer" aria-label="Facebook do Colégio Menino Jesus"><i className="fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/colegio.meninojesus/" target="_blank" rel="noopener noreferrer" aria-label="Instagram do Colégio Menino Jesus"><i className="fa-brands fa-instagram"></i></a>
             </div>
           </div>
           
@@ -52,7 +51,7 @@ const Footer = () => {
               </li>
               <li>
                 <i className="fa-solid fa-envelope"></i>
-                <span>contato@colegiomeninojesus.com</span>
+                <span><a href="mailto:meninojesus_2007@hotmail.com">meninojesus_2007@hotmail.com</a></span>
               </li>
             </ul>
           </div>
