@@ -9,23 +9,22 @@ const Header = () => {
         <div className="container top-bar-content">
           <div className="top-bar-contact">
             <span>
-              <i className="fa-solid fa-map-marker-alt"></i> 
+              <i className="fa-solid fa-map-marker-alt"></i>
               São Luís - MA
             </span>
             <span>
-              <i className="fa-solid fa-envelope"></i> 
-              contato@colegiomeninojesus.com
+              <i className="fa-solid fa-envelope"></i>
+              <a href="mailto:meninojesus_2007@hotmail.com">meninojesus_2007@hotmail.com</a>
             </span>
             <span>
-              <i className="fa-solid fa-phone"></i> 
-              (98) 9999-9999
+              <i className="fa-solid fa-phone"></i>
+              (98) 99200-5609
             </span>
           </div>
           <div className="top-bar-social">
             <span>Siga-nos:</span>
-            <a href="#"><i className="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i className="fa-brands fa-instagram"></i></a>
-            <a href="#"><i className="fa-brands fa-youtube"></i></a>
+            <a href="https://www.facebook.com/meninojesusSlz/?locale=pt_BR" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/colegio.meninojesus/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram"></i></a>
           </div>
         </div>
       </div>
@@ -43,6 +42,7 @@ const Header = () => {
             <a href="#about">História</a>
             <a href="#courses">Atividades</a>
             <a href="#units">Unidades</a>
+            <a href="#gallery">Galeria</a>
             <a href="#contact" className="btn btn-primary">Fale Conosco</a>
           </div>
         </div>
