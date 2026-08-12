@@ -10,6 +10,7 @@ const units = [
     address: 'Av. Brasil, 103 — Jardim América, São Luís - MA, 65058-284',
     phone: '(98) 99200-5609',
     whatsapp: '5598992005609',
+    whatsappMsg: 'Olá! Vim pelo site e gostaria de informações sobre a unidade do Jardim América.',
     instagram: 'https://www.instagram.com/colegio.meninojesus/',
     mapUrl: 'https://www.google.com/maps/dir//Col%C3%A9gio+Menino+Jesus+Und+I+-+Av.+Brasil,+103+-+Jardim+Am%C3%A9rica,+S%C3%A3o+Lu%C3%ADs+-+MA,+65058-284',
     fachada: '/unidades/jardim-america-fachada.jpg'
@@ -22,6 +23,7 @@ const units = [
     address: 'R. Paraíba, 342 — Chácara Brasil, São Luís - MA, 65065-760',
     phone: '(98) 99194-6783',
     whatsapp: '5598991946783',
+    whatsappMsg: 'Olá! Vim pelo site e gostaria de informações sobre a unidade do Turu / Chácara Brasil.',
     instagram: 'https://www.instagram.com/colegio.meninojesus3/',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=Col%C3%A9gio+Menino+Jesus+Ch%C3%A1cara+Brasil+S%C3%A3o+Lu%C3%ADs+MA',
     fachada: '/unidades/chacara-brasil-fachada.jpg'
@@ -65,7 +67,7 @@ const UnitCard = ({ unit }) => {
 
         <div className="unit-actions">
           <a
-            href={`https://wa.me/${unit.whatsapp}`}
+            href={`https://wa.me/${unit.whatsapp}?text=${encodeURIComponent(unit.whatsappMsg)}`}
             className="btn unit-btn-wpp"
             target="_blank"
             rel="noopener noreferrer"
