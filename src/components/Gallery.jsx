@@ -55,23 +55,23 @@ const Gallery = () => {
             Clique em qualquer foto para ampliar.
           </p>
         </div>
+      </div>
 
-        <div className="gallery-masonry">
-          {photos.map((photo, i) => (
-            <button
-              type="button"
-              key={photo.src}
-              className="gallery-item"
-              onClick={() => setLightbox(i)}
-              aria-label={`Ampliar foto: ${photo.caption}`}
-            >
-              <img src={asset(photo.src)} alt={photo.caption} loading="lazy" />
-              <span className="gallery-item-overlay">
-                <i className="fa-solid fa-expand"></i>
-              </span>
-            </button>
-          ))}
-        </div>
+      <div className="gallery-masonry">
+        {photos.map((photo, i) => (
+          <button
+            type="button"
+            key={photo.src}
+            className="gallery-item"
+            onClick={() => setLightbox(i)}
+            aria-label={`Ampliar foto: ${photo.caption}`}
+          >
+            <img src={asset(photo.src)} alt={photo.caption} loading="lazy" />
+            <span className="gallery-item-overlay">
+              <i className="fa-solid fa-expand"></i>
+            </span>
+          </button>
+        ))}
       </div>
 
       {lightbox !== null && (
