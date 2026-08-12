@@ -2,7 +2,7 @@ import React from 'react';
 import { asset, anosDeTradicao } from '../base';
 
 const heroStyle = {
-  backgroundImage: `linear-gradient(to right, rgba(50, 22, 85, 0.72) 0%, rgba(72, 34, 119, 0.52) 45%, rgba(72, 34, 119, 0.2) 100%), url(${asset('/unidades/jardim-america-passeio.jpg')})`
+  backgroundImage: `linear-gradient(to right, rgba(45, 20, 55, 0.66) 0%, rgba(70, 35, 80, 0.4) 45%, rgba(70, 35, 70, 0.12) 100%), linear-gradient(rgba(255, 168, 79, 0.14), rgba(255, 150, 60, 0.1)), url(${asset('/hero.jpg')})`
 };
 
 const Hero = () => {
