@@ -2,12 +2,13 @@ import React from 'react';
 import { asset, anosDeTradicao } from '../base';
 
 const heroStyle = {
-  backgroundImage: `linear-gradient(90deg, rgba(16, 10, 6, 0.68) 0%, rgba(16, 10, 6, 0.42) 34%, rgba(16, 10, 6, 0) 62%), url(${asset('/hero.jpg')})`
+  backgroundImage: `url(${asset('/hero.jpg')})`
 };
 
 const Hero = () => {
   return (
     <section id="home" className="hero" style={heroStyle}>
+      <div className="hero-overlay" aria-hidden="true"></div>
       <div className="container">
         <div className="hero-content animate-fade-in">
           <span className="hero-subtitle">Há {anosDeTradicao} anos educando com amor e responsabilidade.</span>
