@@ -70,7 +70,7 @@ const UnitCard = ({ unit }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fa-brands fa-whatsapp"></i> WhatsApp
+            <i className="fa-brands fa-whatsapp"></i> Falar com esta unidade
           </a>
           <a
             href={unit.instagram}
