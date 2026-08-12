@@ -58,37 +58,6 @@ const About = () => {
               </div>
             </div>
             
-            <div className="about-action">
-              <span className="about-contact-label">
-                <i className="fa-solid fa-phone-volume"></i> Fale com a gente pelo WhatsApp
-              </span>
-              <div className="about-contacts">
-                <a
-                  href="https://wa.me/5598992005609"
-                  className="about-wpp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fa-brands fa-whatsapp"></i>
-                  <span className="about-wpp-text">
-                    <small>Jardim América</small>
-                    <strong>(98) 99200-5609</strong>
-                  </span>
-                </a>
-                <a
-                  href="https://wa.me/5598991946783"
-                  className="about-wpp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fa-brands fa-whatsapp"></i>
-                  <span className="about-wpp-text">
-                    <small>Turu / Chácara Brasil</small>
-                    <strong>(98) 99194-6783</strong>
-                  </span>
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </div>

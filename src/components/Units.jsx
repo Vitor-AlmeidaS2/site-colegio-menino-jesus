@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { asset } from '../base';
 
 const units = [
@@ -10,14 +10,9 @@ const units = [
     address: 'Av. Brasil, 103 — Jardim América, São Luís - MA, 65058-284',
     phone: '(98) 99200-5609',
     whatsapp: '5598992005609',
+    instagram: 'https://www.instagram.com/colegio.meninojesus/',
     mapUrl: 'https://www.google.com/maps/dir//Col%C3%A9gio+Menino+Jesus+Und+I+-+Av.+Brasil,+103+-+Jardim+Am%C3%A9rica,+S%C3%A3o+Lu%C3%ADs+-+MA,+65058-284',
-    photos: [
-      { src: '/unidades/jardim-america-fachada.jpg', caption: 'Fachada' },
-      { src: '/unidades/jardim-america-2.jpg', caption: 'Sala de aula' },
-      { src: '/unidades/jardim-america-3.jpg', caption: 'Eventos' },
-      { src: '/unidades/jardim-america-4.jpg', caption: 'Eventos' },
-      { src: '/unidades/jardim-america-passeio.jpg', caption: 'Passeio' }
-    ]
+    fachada: '/unidades/jardim-america-fachada.jpg'
   },
   {
     id: 2,
@@ -27,27 +22,20 @@ const units = [
     address: 'R. Paraíba, 342 — Chácara Brasil, São Luís - MA, 65065-760',
     phone: '(98) 99194-6783',
     whatsapp: '5598991946783',
+    instagram: 'https://www.instagram.com/colegio.meninojesus3/',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=Col%C3%A9gio+Menino+Jesus+Ch%C3%A1cara+Brasil+S%C3%A3o+Lu%C3%ADs+MA',
-    photos: [
-      { src: '/unidades/chacara-brasil-fachada.jpg', caption: 'Fachada' },
-      { src: '/unidades/chacara-brasil-1.jpg', caption: 'Nossa unidade' },
-      { src: '/unidades/chacara-brasil-2.jpg', caption: 'Nossa unidade' },
-      { src: '/unidades/chacara-brasil-3.jpg', caption: 'Sala de aula' },
-      { src: '/unidades/chacara-brasil-4.jpg', caption: 'Robótica' }
-    ]
+    fachada: '/unidades/chacara-brasil-fachada.jpg'
   }
 ];
 
 const UnitCard = ({ unit }) => {
-  const [active, setActive] = useState(0);
-
   return (
     <div className="unit-card">
       <div className="unit-gallery">
         <div className="unit-image">
           <img
-            src={asset(unit.photos[active].src)}
-            alt={`${unit.name} — ${unit.photos[active].caption}`}
+            src={asset(unit.fachada)}
+            alt={`Fachada — ${unit.name}`}
             loading="lazy"
             onError={(e) => { e.currentTarget.style.display = 'none'; }}
           />
@@ -55,20 +43,6 @@ const UnitCard = ({ unit }) => {
             <i className="fa-solid fa-school"></i>
           </div>
           <span className="unit-year">Desde {unit.year}</span>
-        </div>
-
-        <div className="unit-thumbs">
-          {unit.photos.map((photo, i) => (
-            <button
-              type="button"
-              key={photo.src}
-              className={`unit-thumb ${i === active ? 'is-active' : ''}`}
-              onClick={() => setActive(i)}
-              aria-label={`Ver foto ${i + 1} — ${photo.caption}`}
-            >
-              <img src={asset(photo.src)} alt="" loading="lazy" />
-            </button>
-          ))}
         </div>
       </div>
 
@@ -97,6 +71,14 @@ const UnitCard = ({ unit }) => {
             rel="noopener noreferrer"
           >
             <i className="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+          <a
+            href={unit.instagram}
+            className="btn unit-btn-insta"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fa-brands fa-instagram"></i> Instagram
           </a>
           <a
             href={unit.mapUrl}
