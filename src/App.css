@@ -376,7 +376,7 @@
 /* About */
 .about-section {
   padding: 80px 0;
-  background-color: var(--tint-cream);
+  background-color: var(--bg-color);
 }
 
 .about-grid {
@@ -838,19 +838,6 @@
   outline-offset: -3px;
 }
 
-.deck-card-cap {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 30px 16px 12px;
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.72));
-  color: #fff;
-  font-size: 0.92rem;
-  font-weight: 500;
-  text-align: left;
-}
-
 .deck-arrow {
   flex-shrink: 0;
   position: relative;
@@ -935,13 +922,6 @@
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
 }
 
-.lightbox-figure figcaption {
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 500;
-  text-align: center;
-}
-
 .lightbox-close,
 .lightbox-arrow {
   position: absolute;
@@ -998,6 +978,7 @@
   padding: 80px 0 30px;
   position: relative;
   overflow: hidden;
+  border-top: 4px solid var(--secondary-color);
 }
 
 .footer::before {

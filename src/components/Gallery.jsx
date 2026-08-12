@@ -4,11 +4,9 @@ import { asset } from '../base';
 const photos = [
   { src: '/unidades/jardim-america-passeio.jpg', caption: 'Passeio — Jardim América' },
   { src: '/atividades/ballet.jpg', caption: 'Ballet' },
-  { src: '/unidades/jardim-america-fachada.jpg', caption: 'Fachada — Jardim América' },
   { src: '/unidades/chacara-brasil-1.jpg', caption: 'Unidade Chácara Brasil' },
   { src: '/unidades/jardim-america-3.jpg', caption: 'Eventos — Jardim América' },
   { src: '/atividades/natacao.jpg', caption: 'Natação' },
-  { src: '/unidades/chacara-brasil-fachada.jpg', caption: 'Fachada — Chácara Brasil' },
   { src: '/unidades/jardim-america-2.jpg', caption: 'Sala de aula — Jardim América' },
   { src: '/unidades/chacara-brasil-3.jpg', caption: 'Sala de aula — Chácara Brasil' },
   { src: '/atividades/robotica.jpg', caption: 'Robótica' },
@@ -102,7 +100,6 @@ const Gallery = () => {
                 aria-hidden={!shown}
               >
                 <img src={asset(photo.src)} alt={photo.caption} draggable="false" />
-                {d === 0 && <span className="deck-card-cap">{photo.caption}</span>}
               </button>
             );
           })}
@@ -139,7 +136,6 @@ const Gallery = () => {
           </button>
           <figure className="lightbox-figure" onClick={(e) => e.stopPropagation()}>
             <img src={asset(photos[lightbox].src)} alt={photos[lightbox].caption} />
-            <figcaption>{photos[lightbox].caption}</figcaption>
           </figure>
           <button
             className="lightbox-arrow lightbox-next"
