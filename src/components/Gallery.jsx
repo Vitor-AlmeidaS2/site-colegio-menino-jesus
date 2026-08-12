@@ -26,6 +26,22 @@ const Gallery = () => {
   const [active, setActive] = useState(0);
   const [lightbox, setLightbox] = useState(null);
   const [paused, setPaused] = useState(false);
+  const [vw, setVw] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  useEffect(() => {
+    const onResize = () => setVw(window.innerWidth);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  // No mobile o leque fica bem mais fechado (senão vaza pra fora da tela)
+  const compact = vw <= 640;
+  const OX = compact ? 16 : 46;
+  const OY = compact ? -12 : -30;
+  const OZ = compact ? -40 : -70;
+  const ROT = compact ? 0.8 : 1.5;
+  const SC = compact ? 0.06 : 0.05;
+  const maxVisible = compact ? 3 : VISIBLE;
 
   const go = useCallback((dir) => setActive((a) => (a + dir + n) % n), [n]);
 
@@ -81,12 +97,12 @@ const Gallery = () => {
         <div className="deck-stage">
           {photos.map((photo, i) => {
             const d = (i - active + n) % n; // 0 = card da frente
-            const shown = d <= VISIBLE;
+            const shown = d <= maxVisible;
             const style = {
               transform:
                 `translate(-50%, -50%) ` +
-                `translate3d(${d * 46}px, ${d * -30}px, ${d * -70}px) ` +
-                `rotate(${d * 1.5}deg) scale(${Math.max(1 - d * 0.05, 0.6)})`,
+                `translate3d(${d * OX}px, ${d * OY}px, ${d * OZ}px) ` +
+                `rotate(${d * ROT}deg) scale(${Math.max(1 - d * SC, 0.6)})`,
               opacity: shown ? Math.max(1 - d * 0.15, 0) : 0,
               zIndex: n - d,
               pointerEvents: d === 0 ? 'auto' : 'none'
