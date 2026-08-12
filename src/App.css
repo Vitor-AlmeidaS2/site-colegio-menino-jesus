@@ -64,7 +64,7 @@
 }
 
 .brand-logo {
-  height: 55px;
+  height: 78px;
   width: auto;
   display: block;
 }
@@ -1134,6 +1134,8 @@
 
   .navbar { position: sticky; }
   .nav-toggle { display: flex; }
+  .brand-logo { height: 60px; }
+  .logo-text { font-size: 1.35rem; }
 
   .nav-links {
     display: none;
