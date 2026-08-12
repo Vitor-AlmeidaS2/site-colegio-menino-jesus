@@ -1341,13 +1341,14 @@
 }
 
 @media (max-width: 768px) {
-  .floating-contacts { right: 14px; bottom: 14px; gap: 10px; }
-  .fc-btn { width: 48px; height: 48px; font-size: 1.4rem; }
+  .floating-contacts { right: 16px; bottom: 16px; gap: 12px; }
+  .fc-btn { width: 60px; height: 60px; font-size: 1.8rem; }
 }
 
 @media (max-width: 640px) {
   .cookie-banner { flex-direction: column; align-items: stretch; gap: 12px; padding: 16px; }
   .cookie-actions { justify-content: flex-end; }
-  /* enquanto o banner aparece, sobe os botões flutuantes pra não ficarem atrás dele */
-  .floating-contacts { bottom: 150px; }
+  /* só sobe os botões enquanto o banner de cookies estiver na tela;
+     depois de aceitar/recusar, voltam pro canto inferior direito */
+  body.cookie-banner-open .floating-contacts { bottom: 170px; }
 }

@@ -16,6 +16,13 @@ const CookieBanner = () => {
     }
   }, []);
 
+  // Enquanto o banner está visível, marca o body para o CSS levantar
+  // os botões flutuantes; quando some, eles voltam pro canto inferior.
+  useEffect(() => {
+    document.body.classList.toggle('cookie-banner-open', show);
+    return () => document.body.classList.remove('cookie-banner-open');
+  }, [show]);
+
   const decide = (accepted) => {
     try {
       localStorage.setItem(KEY, accepted ? 'accepted' : 'rejected');
