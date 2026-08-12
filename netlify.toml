@@ -1,0 +1,17 @@
+# Configuração de deploy no Netlify.
+# O build usa a base "/" padrão do vite.config (o --base do GitHub Pages
+# só é aplicado no workflow deploy.yml, então não interfere aqui).
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Fallback: garante que qualquer navegação direta caia no index.html
+# (o site é single-page com âncoras; isso evita 404 em rotas inesperadas).
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
