@@ -10,7 +10,6 @@ const photos = [
   { src: '/unidades/jardim-america-2.jpg', caption: 'Sala de aula — Jardim América' },
   { src: '/unidades/chacara-brasil-3.jpg', caption: 'Sala de aula — Chácara Brasil' },
   { src: '/atividades/robotica.jpg', caption: 'Robótica' },
-  { src: '/atividades/natacao-2.jpg', caption: 'Natação' },
   { src: '/unidades/jardim-america-4.jpg', caption: 'Eventos — Jardim América' },
   { src: '/unidades/chacara-brasil-2.jpg', caption: 'Unidade Chácara Brasil' },
   { src: '/unidades/jardim-america-1.jpg', caption: 'Jardim América' },
