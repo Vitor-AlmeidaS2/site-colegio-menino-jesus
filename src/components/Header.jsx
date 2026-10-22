@@ -53,12 +53,12 @@ const Header = () => {
           </button>
 
           <div className={`nav-links ${open ? 'is-open' : ''}`}>
-            <a href="#home" onClick={close}>Início</a>
-            <a href="#about" onClick={close}>História</a>
-            <a href="#courses" onClick={close}>Atividades</a>
-            <a href="#units" onClick={close}>Unidades</a>
-            <a href="#gallery" onClick={close}>Galeria</a>
-            <a href="#units" className="btn btn-primary" onClick={close}>Fale Conosco</a>
+            <a href="/#home" onClick={close}>Início</a>
+            <a href="/#about" onClick={close}>História</a>
+            <a href="/#courses" onClick={close}>Atividades</a>
+            <a href="/#units" onClick={close}>Unidades</a>
+            <a href="/#gallery" onClick={close}>Galeria</a>
+            <a href="/matriculas" className="btn btn-primary" onClick={close}>Matrículas 2027</a>
           </div>
         </div>
       </nav>

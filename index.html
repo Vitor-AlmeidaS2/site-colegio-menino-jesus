@@ -31,6 +31,30 @@
       gtag('config', 'G-YCZGFKD0QQ');
     </script>
 
+    <!-- Meta Pixel (anúncios do Instagram e do Facebook) -->
+    <script>
+      // Troque pelo ID do pixel criado em business.facebook.com > Gerenciador de Eventos.
+      // Enquanto estiver com o texto abaixo, o pixel fica desligado e nada é enviado.
+      window.CMJ_META_PIXEL_ID = 'COLOQUE_O_ID_DO_PIXEL_AQUI';
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      if (window.CMJ_META_PIXEL_ID !== 'COLOQUE_O_ID_DO_PIXEL_AQUI') {
+        // LGPD: igual ao Consent Mode do Google — sem aceite no banner, o pixel
+        // não grava cookie nem envia dados. O revoke precisa vir antes do init.
+        fbq('consent', 'revoke');
+        try {
+          if (localStorage.getItem('cmj-cookie-consent') === 'accepted') {
+            fbq('consent', 'grant');
+          }
+        } catch (e) {}
+        fbq('init', window.CMJ_META_PIXEL_ID);
+        fbq('track', 'PageView');
+      }
+    </script>
+
     <!-- Favicon (logo do Colégio Menino Jesus) -->
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
@@ -114,6 +138,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
+    <!-- Formulário oculto só para o Netlify detectar o form no build.
+         O formulário que o visitante vê é renderizado pelo React e envia por fetch. -->
+    <form name="matriculas" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="nome" />
+      <input type="tel" name="telefone" />
+      <input type="text" name="unidade" />
+      <input type="text" name="serie" />
+      <input type="text" name="bot-field" />
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

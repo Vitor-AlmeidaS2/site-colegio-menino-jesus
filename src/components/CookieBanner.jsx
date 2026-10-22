@@ -37,6 +37,10 @@ const CookieBanner = () => {
         analytics_storage: 'granted'
       });
     }
+    // Mesmo aceite libera o Meta Pixel, que sobe com consent revoke no index.html.
+    if (accepted && typeof window.fbq === 'function') {
+      window.fbq('consent', 'grant');
+    }
     setShow(false);
   };
 

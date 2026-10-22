@@ -23,18 +23,18 @@ const Footer = () => {
           <div className="footer-col">
             <h3 className="footer-title">Links Úteis</h3>
             <ul className="footer-links">
-              <li><a href="#home">Início</a></li>
-              <li><a href="#about">Sobre Nós</a></li>
-              <li><a href="#courses">Atividades</a></li>
-              <li><a href="#units">Nossas Unidades</a></li>
+              <li><a href="/#home">Início</a></li>
+              <li><a href="/#about">Sobre Nós</a></li>
+              <li><a href="/#courses">Atividades</a></li>
+              <li><a href="/#units">Nossas Unidades</a></li>
             </ul>
           </div>
           
           <div className="footer-col">
             <h3 className="footer-title">Nossas Unidades</h3>
             <ul className="footer-links">
-              <li><a href="#units">Unidade I - Jardim América (1998)</a></li>
-              <li><a href="#units">Unidade II - Chácara Brasil (2021)</a></li>
+              <li><a href="/#units">Unidade I - Jardim América (1998)</a></li>
+              <li><a href="/#units">Unidade II - Chácara Brasil (2021)</a></li>
             </ul>
           </div>
           
