@@ -9,6 +9,18 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# /matriculas é servido pelo dist/matriculas/index.html que o build gera.
+# Sem esta regra o Netlify redireciona /matriculas para /matriculas/ (301 de
+# diretório), e aí o canonical da página apontaria para uma URL que redireciona
+# — sinal contraditório para o Google. Os anúncios do Meta e do Google também
+# apontam para /matriculas, e um salto a menos é um salto a menos.
+# force = true porque sem ele o Netlify resolve o diretório antes da regra.
+[[redirects]]
+  from = "/matriculas"
+  to = "/matriculas/index.html"
+  status = 200
+  force = true
+
 # Fallback: garante que qualquer navegação direta caia no index.html
 # (o site é single-page com âncoras; isso evita 404 em rotas inesperadas).
 [[redirects]]
