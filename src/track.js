@@ -3,10 +3,19 @@
 // pelo Consent Mode e a Meta pelo fbq('consent', ...) —, então aqui basta
 // chamar. Medição nunca pode quebrar a página, por isso tudo vai em try/catch.
 
+// Rótulo da ação de conversão "Lead WhatsApp (site)", criada na conta do Google
+// Ads em 17/11. Contagem "Uma" por clique: se a pessoa manda o formulário e
+// depois clica no WhatsApp, o Google conta um lead só.
+const ADS_LEAD = 'AW-10831681084/lNZeCKSamrodELys-awo';
+
 export const trackLead = (origem) => {
   try {
     if (typeof window.gtag === 'function') {
       window.gtag('event', 'generate_lead', { origem });
+      // Conversão do Google Ads. Os botões de WhatsApp abrem em outra aba
+      // (target="_blank") e o formulário usa window.open, então a página não
+      // sai do ar e o evento tem tempo de subir — não precisa de event_callback.
+      window.gtag('event', 'conversion', { send_to: ADS_LEAD });
     }
   } catch {
     /* sem gtag na página — segue sem medir */
